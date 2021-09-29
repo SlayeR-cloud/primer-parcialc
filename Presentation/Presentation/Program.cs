@@ -57,7 +57,7 @@ namespace Presentation
             double annual_losts = double.Parse(Console.ReadLine());
             Console.Write("Coloque el tiempo de funcionamiento: ");
             int work_time = int.Parse(Console.ReadLine());
-            Console.Write("Coloque el tipo de responsabilidad\n1) IVA\n2) NO IVA\nOpcion: ");
+            Console.Write("Coloque el tipo de responsabilidad\n1) IVA\n2) NO IVA\n3) REGIMEN SIMPLE TRIBUTACION\nOpcion: ");
             int option = int.Parse(Console.ReadLine());
             string responsability_kind = "";
             if (option == 1)
@@ -66,10 +66,16 @@ namespace Presentation
                 establishment = new ResponsibleEstablishment(id, name, annual_earnings, annual_losts
                 , work_time, responsability_kind);
             }
-            else
+            else if (option == 2)
             {
                 responsability_kind = "no responsable de iva";
                 establishment = new NonResponsibleEstablishment(id, name, annual_earnings, annual_losts
+                , work_time, responsability_kind);
+            }
+            else
+            {
+                responsability_kind = "regimen simple de tributacion";
+                establishment = new SimpleTaxRegimeEstablishment(id, name, annual_earnings, annual_losts
                 , work_time, responsability_kind);
             }
             return establishment;

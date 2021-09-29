@@ -73,9 +73,17 @@ namespace DataAccessLayer
                     int.Parse(data[4]), data[5], double.Parse(data[6]),
                     double.Parse(data[7]));
                 }
-                else
+                else if (data[5].Equals("no responsable de iva"))
                 {
                     establishment = new NonResponsibleEstablishment(
+                    int.Parse(data[0]), data[1], double.Parse(data[2]),
+                    double.Parse(data[3]),
+                    int.Parse(data[4]), data[5], double.Parse(data[6]),
+                    double.Parse(data[7]));
+                }
+                else
+                {
+                    establishment = new SimpleTaxRegimeEstablishment(
                     int.Parse(data[0]), data[1], double.Parse(data[2]),
                     double.Parse(data[3]),
                     int.Parse(data[4]), data[5], double.Parse(data[6]),
